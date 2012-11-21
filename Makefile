@@ -9,6 +9,7 @@ CFLAGS  = -W -Wall # -ansi -D_XOPEN_SOURCE=500
 LDFLAGS =
 OPT     = -O2
 OBJS    = repeater.o repeaterproc.o openbsd_stringfuncs.o iniparser.o readini.o repeaterevents.o in46_addr.o
+SHELL   = /bin/bash
 
 ifeq ($(V), 1)
 THECC = $(CC)
@@ -41,10 +42,7 @@ install: all
 	$(VERBOSE)mkdir -p $(DESTDIR)$(prefix)/bin
 	$(VERBOSE)mkdir -p $(DESTDIR)/etc
 	$(VERBOSE)cp -f repeater $(DESTDIR)$(prefix)/bin/$(PACKAGE)
-    if ! [ -f $(DESTDIR)/etc/$(PACKAGE).ini ];
-    then
-       $(VERBOSE)cp -f uvncrepeater.ini $(DESTDIR)/etc/$(PACKAGE).ini
-    fi
+	if ! [ -f $(DESTDIR)/etc/$(PACKAGE).ini ]; then cp uvncrepeater.ini $(DESTDIR)/etc/$(PACKAGE).ini; fi
 	
 
 clean:
