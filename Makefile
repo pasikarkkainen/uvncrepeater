@@ -1,4 +1,4 @@
-PACKAGE = uvncrepeater-ac
+PACKAGE = uvncrepeater
 VERSION = 1.0.0
 DESTDIR =
 prefix  = /usr/local
@@ -41,7 +41,11 @@ install: all
 	$(VERBOSE)mkdir -p $(DESTDIR)$(prefix)/bin
 	$(VERBOSE)mkdir -p $(DESTDIR)/etc
 	$(VERBOSE)cp -f repeater $(DESTDIR)$(prefix)/bin/$(PACKAGE)
-	$(VERBOSE)cp -f uvncrepeater.ini $(DESTDIR)/etc/$(PACKAGE).ini
+    if ! [ -f $(DESTDIR)/etc/$(PACKAGE).ini ];
+    then
+       $(VERBOSE)cp -f uvncrepeater.ini $(DESTDIR)/etc/$(PACKAGE).ini
+    fi
+	
 
 clean:
 	$(VERBOSE)rm -f *.o repeater $(PACKAGE)-$(VERSION).tar.bz2
