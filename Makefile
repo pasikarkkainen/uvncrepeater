@@ -42,7 +42,7 @@ install: all
 	$(VERBOSE)mkdir -p $(DESTDIR)$(prefix)/bin
 	$(VERBOSE)mkdir -p $(DESTDIR)/etc
 	$(VERBOSE)cp -f repeater $(DESTDIR)$(prefix)/bin/$(PACKAGE)
-	if ! [ -f $(DESTDIR)/etc/$(PACKAGE).ini ]; then cp uvncrepeater.ini $(DESTDIR)/etc/$(PACKAGE).ini; fi
+	$(VERBOSE)if ! [ -f $(DESTDIR)/etc/$(PACKAGE).ini ]; then cp uvncrepeater.ini $(DESTDIR)/etc/$(PACKAGE).ini; fi
 	
 
 clean:
