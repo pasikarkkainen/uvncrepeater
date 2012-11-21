@@ -32,7 +32,7 @@ SCRIPTNAME=$0
 UVNCREPPID=/var/run/uvncrepeater.pid
 UVNCREPLOG=/var/log/uvncrepeater.log
 UVNCREPRUN=/usr/local/bin/uvncrepeater-log
-UVNCREPSVC=/usr/local/bin/uvncrepeatersvc
+UVNCREPSVC=/usr/local/bin/uvncrepeater
 UVNCREPINI=/etc/uvncrepeater.ini
 
 SYSTYPE=Debian 
