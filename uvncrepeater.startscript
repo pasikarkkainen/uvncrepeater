@@ -58,14 +58,13 @@ if test ! -x $UVNCREPRUN ; then
 
 case "$1" in
 start)
-  echo -n "Running UltraVNC Repeater..."
+  echo "Running UltraVNC Repeater..."
   if [ "$SYSTYPE" == "Debian" ]; then
   		start-stop-daemon --start -b -m -p $UVNCREPPID --exec $UVNCREPRUN -- $UVNCREPLOG
-	else
+  else
   		$UVNCREPRUN -- $UVNCREPLOG &
 		echo $! > $UVNCREPPID
-	fi
-  echo "."
+  fi
   ;;
 stop)
   echo  "Stopping UltraVNC Repeater..."
